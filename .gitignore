@@ -1,0 +1,17 @@
+# Ignore data files
+data/
+
+# Ignore kagglehub cache and temp files
+.kaggle/
+*.zip
+
+# Ignore local virtual environments
+venv/
+env/
+*.env
+.venv
+__pycache__/
+
+# Ignore jupyter/OS files
+.ipynb_checkpoints/
+.DS_Store

@@ -1,5 +1,5 @@
 # Ignore data files
-data/
+! data/
 
 # Ignore kagglehub cache and temp files
 .kaggle/

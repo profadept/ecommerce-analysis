@@ -58,4 +58,4 @@
 - [x] Clean and standardize column names
 - [x] Perform Univariate Analysis (Numerical & Categorical)
 - [x] Perform Bivariate Analysis (Key Relationships & Heatmap)
-- [ ] Add Detailed Summary and Conclusions (in Notebook)
+- [x] Add Detailed Summary and Conclusions (in Notebook)

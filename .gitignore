@@ -1,5 +1,6 @@
 # Ignore data files
-! data/
+data/
+figures/
 
 # Ignore kagglehub cache and temp files
 .kaggle/

@@ -1,61 +1,70 @@
 # E-commerce Shopping Behavior Analysis
 
-**Goal:** Practice Pandas data manipulation and Seaborn/Matplotlib visualization to understand customer habits.
+An exploratory analysis of customer shopping behavior, answering three questions:
+
+* Does gender or age group drive differences in purchase behavior?
+* Which product categories dominate purchases, and does season or gender shift those preferences?
+* Does the purchase amount vary meaningfully across customer segments?
+
+
+## Key Findings
+
+* **Demographics do not drive purchase behavior.** The purchases are spread across all age groups; the median purchase of both genders is 60.
+  
+* **Clothing and accessories dominate, regardless of season or gender.** Neither seasonality nor gender shifts category preference, indicating consistent demand across the customer base.
+  
+* **Customer segments do not differentiate spending.** Purchase amounts cluster around a median of $60 across categories and subscription status, reflecting a narrow product price range.
+
 
 ## Data Source
 * **Origin:** Kaggle
-* **Dataset:** [Shopping Behavior Dataset](https://www.kaggle.com/datasets/ahmadrazakashif/shopping-behavior-dataset) by Ahmad Raza Kashif
-* **Note:** For reviewer convenience, the raw `shopping_behavior_updated.csv` file used for this analysis is included in the `/data/` directory of this repository. The notebook loads this local file.
-
-## Key Insights (Highlights)
-* **Spending Consistency:** Purchase amounts per transaction are remarkably consistent (~$60 median) across different age groups, genders, product categories, and seasons.
-* **Male Dominance:** Male customers represent the majority (~68%) of transactions across all product categories in this dataset.
-* **Popular Categories:** Clothing and Accessories are the most frequently purchased item categories.
-* **Data Quality:** The dataset was found to be clean with no missing values.
-*(See the Jupyter Notebook for detailed analysis and visualizations).*
-
-## Setup & Installation
-
-1.  **Clone this repository.** The required CSV dataset is included in the `/data/` folder.
-
-2.  **Set up your Environment (Choose One):**
-
-    * **Option A: `conda` (Recommended)**
-        ```bash
-        # Create and activate the environment
-        conda env create -f environment.yml
-        conda activate ecommerce-env
-        ```
-
-    * **Option B: `venv` / `pip`**
-        ```bash
-        # Create and activate the environment
-        python -m venv venv
-        source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-
-        # Install dependencies
-        pip install -r requirements.txt
-        ```
-
-3.  **Launch JupyterLab:**
-    ```bash
-    jupyter lab
-    ```
-
-4.  **Open the Notebook:** Navigate to the `/notebooks/` folder and open `analysis.ipynb`. You can now run the cells directly.
-
----
+* **Dataset:** [Shopping Behavior Dataset](https://www.kaggle.com/datasets/profadept/shopping-behaviour-dataset)
 
 ## Project Structure
-* `/notebooks/analysis.ipynb`: The main analysis notebook containing detailed steps and conclusions.
-* `/data/`: Contains the raw dataset (`.csv`) and processed (`.parquet`) files.
-* `/figures/`: Contains exported charts and plots.
-* `environment.yml`: Environment file for `conda` users.
-* `requirements.txt`: Environment file for `pip` users.
+```
+.
+├── data/                     # Raw and processed data files (gitignored)
+├── figures/                  # Generated charts (gitignored)
+├── notebooks                 
+│   └── analysis.ipynb        # Main analysis notebook
+├── pyproject.toml            # Project dependencies and metadata
+├── README.md
+├── scripts
+│   └── download_data.py      # Kaggle dataset downloader
+└── uv.lock                   # Locked dependency versions
+```
 
-## Project Status
-- [x] Load and inspect data from local CSV
-- [x] Clean and standardize column names
-- [x] Perform Univariate Analysis (Numerical & Categorical)
-- [x] Perform Bivariate Analysis (Key Relationships & Heatmap)
-- [x] Add Detailed Summary and Conclusions (in Notebook)
+## Setup
+
+Requires [uv](https://docs.astral.sh/uv/). Clone the repo and sync dependencies:
+
+```bash
+git clone git@github.com:profadept/ecommerce-analysis.git
+cd ecommerce-analysis
+uv sync
+```
+
+## How to Run 
+
+**Option 1 — Manual download**
+Create a `data/` folder in the project root, download and unzip from the Kaggle 
+link above, then place `shopping_behavior_updated.csv` inside it.
+
+**Option 2 — Download script**
+Place your Kaggle credentials at `~/.kaggle/kaggle.json`, then run:
+
+```bash
+uv run python scripts/download_data.py
+```
+
+Then launch the notebook:
+
+```bash
+uv run jupyter lab
+```
+
+## Tech Stack
+- Python 3.14
+- pandas, NumPy, seaborn, matplotlib
+- Jupyter Lab
+- uv for dependency management

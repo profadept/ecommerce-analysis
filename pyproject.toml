@@ -14,3 +14,8 @@ dependencies = [
     "pyarrow>=23.0.1",
     "seaborn>=0.13.2",
 ]
+
+[dependency-groups]
+dev = [
+    "nbstripout>=0.9.1",
+]
